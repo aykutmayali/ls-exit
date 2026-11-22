@@ -1,0 +1,47 @@
+{
+  "name": "ls-exit",
+  "version": "0.1.0",
+  "description": "Scan codebases for Lemon Squeezy usage before the March 31, 2027 shutdown, plus a provider-agnostic billing adapter and legacy license key compatibility server.",
+  "license": "MIT",
+  "author": "Aykut Mayali",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aykutmayali/ls-exit.git"
+  },
+  "keywords": [
+    "lemon-squeezy",
+    "lemonsqueezy",
+    "migration",
+    "polar",
+    "paddle",
+    "creem",
+    "dodo-payments",
+    "merchant-of-record",
+    "license-keys"
+  ],
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "bin": {
+    "ls-exit": "./dist/src/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.tr.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "scan:self": "node dist/src/cli.js scan ./fixtures/nextjs-saas"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}
